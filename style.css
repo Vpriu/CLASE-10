@@ -1,0 +1,129 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+    max-width: 980px;
+    padding: 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 10vh 75vh 10vh;
+    /* dimensiones de las calles o gap */
+    gap: 10px; 
+}
+
+.main{
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-start: 1; /* el número hace referencia al gap no a la caolumna */
+    grid-column-end: 7; /* también puede ponerse -1 */
+    gap: 8px;
+}
+
+.aside{
+   /* cuantas columnas del padre va a ocupar  */
+   grid-column-start: 1;
+   grid-column-end: 3;
+   background-color: aquamarine;
+   padding: 8px;
+}
+
+.aside h2{
+    font-size: 1rem;
+
+}
+
+.aside ul li a{
+    text-decoration: none;
+    color: darkslategrey;
+}
+
+.aside ul li a:hover{
+    text-decoration: underline;
+}
+
+.section{
+    /* cuantas columnas del padre ocupa section */
+    grid-column-start: 3;
+    grid-column-end: 7;
+    background-color: cadetblue;
+    padding: 8px;
+}
+
+.section p:hover{
+    background-color: beige;
+}
+
+.nav, .nav ul{
+    /* predisponemos a los padres a comportamiento de grillas */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    /* cuantas columnas ocupamos */
+    grid-column-start: 1;
+    grid-column-end: 7;
+    /* valor de los vacios o gap */
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    background-color: darkgoldenrod;
+}
+
+.nav ul li a{
+    color: darkolivegreen;
+    text-decoration: none;
+}
+
+.nav ul li{
+    list-style: none;
+    /* predisponemos a li a comportamiento flexible */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* pseudo selector :nth-child() */
+.footer ul li:nth-child(1){
+    grid-column: 2;
+}
+
+.header ul li:nth-child(1){
+    grid-column: 4;
+}
+
+/* Menú desplegable */
+.header ul li .dropdown-content{
+    /* Personalizamos la posición de dropdown */
+    position: absolute;
+    /* ubicamos la caja drop */
+    top: 10vh;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.header ul{
+   position: relative; 
+}
+
+.header ul li:hover .dropdown-content{
+    opacity: 1;
+}
+
+/* Estilos al menú desplegable */
+.header ul li .dropdown-content li{
+    padding: 20px 40px; 
+    transform: all 0.3s;
+}
+
+.header ul li .dropdown-content li:hover{
+    background-color: bisque;
+}
